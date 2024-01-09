@@ -5,6 +5,6 @@ Semua contoh ada di folder examples, bisa di coba sendiri :)
 ## Pengumpulan tugas
 
 Buat fork baru aja, biar aku gampang nge-cek nya. 
-Tulis nama dibawah ini:
-Nama: 
-NRP:
+Tulis nama dibawah ini: \
+Nama: \
+NRP: 
