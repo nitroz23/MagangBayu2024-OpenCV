@@ -5,7 +5,6 @@ import sys
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--modelPath', type=str, default='examples/model/facemask.pt', help='Model.pt path(s)')
-parser.add_argument('--viewImage', action='store_true', help='Option to view object classification image')
 parser.add_argument('--frameSize', type=int, default='640', help='frame size')
 parser.add_argument('--useCuda', action='store_true', help='Option to use CUDA')
 opt = parser.parse_args()
@@ -57,17 +56,11 @@ while cap.isOpened():
     total_fps = total_fps + fps
     avg_fps = total_fps / frame_count
 
+    cv2.putText(frame, "FPS: " + str(int(fps)), (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), thickness=1)
+    cv2.putText(frame, "FPS average: "+str(int(avg_fps)), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), thickness=1)
+    cv2.putText(frame, "Frame size: "+str(frame_height)+"x"+str(frame_width), (10, 55), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), thickness=1)
+    cv2.imshow('frame', frame)
 
-    if opt.viewImage:
-        cv2.putText(frame, "FPS: " + str(int(fps)), (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), thickness=1)
-        cv2.putText(frame, "FPS average: "+str(int(avg_fps)), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), thickness=1)
-        cv2.putText(frame, "Frame size: "+str(frame_height)+"x"+str(frame_width), (10, 55), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), thickness=1)
-        cv2.imshow('frame', frame)
-    else:
-        print("Detected Object: "+str(objectCount))
-        print("FPS: "+str(int(fps)))
-        print("FPS average: "+str(int(avg_fps)))
-        print("Frame Size: "+str(frame_height)+"x"+str(frame_width))
     if cv2.waitKey(1) == 27:
         break
 
