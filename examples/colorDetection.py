@@ -18,5 +18,5 @@ cv2.imshow("Original", img)
 cv2.imshow("Mask", mask)
 cv2.imshow("Result", img_masked)
 
-cv2.waitKey(0)
+cv2.waitKey(0)  
 cv2.destroyAllWindows()
