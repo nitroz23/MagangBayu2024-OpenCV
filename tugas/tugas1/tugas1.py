@@ -14,7 +14,7 @@ for contour in contours:
     area = cv2.contourArea(contour)
 
     if area > 1500:
-        color = (0, 0, 255)  # Green color in BGR
+        color = (0, 0, 255)  
         thickness = 2
         cv2.rectangle(img, (x, y), (x + w, y + h), color, thickness)
 
